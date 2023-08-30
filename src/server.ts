@@ -70,7 +70,7 @@ app.get('/getCounter', (req: Request, res: Response) => {
     res.send({ count: latestInstance.count.toString() })
 })
 
-const PORT = 3000
+const PORT = parseInt(process.env.PORT as string, 10) || 3000
 init().then(() => {
     app.listen(PORT, '0.0.0.0', () => {
         console.log(`Server is listening on http://0.0.0.0:${PORT}`)
