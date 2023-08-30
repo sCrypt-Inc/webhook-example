@@ -7,6 +7,7 @@
     "prebuild": "npm run clean",
     "build": "tsc",
     "deploy": "npx ts-node ./deploy.ts",
+    "increment": "npx ts-node ./increment.ts",
     "clean": "rimraf scrypt.index.json && rimraf dist && rimraf artifacts",
     "compile": "npx scrypt-cli@latest compile",
     "pretest": "npm run build && npm run compile",

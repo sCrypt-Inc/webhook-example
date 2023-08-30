@@ -50,6 +50,7 @@ app.post('/event', async (req: Request, res: Response) => {
                 const provider = new DefaultProvider({
                     network: bsv.Networks.testnet,
                 })
+                await provider.connect()
                 const tx = await provider.getTransaction(txId)
 
                 // Reconstruct latest contract instance from serialized tx.
