@@ -2,7 +2,14 @@ import express, { Request, Response } from 'express'
 import bodyParser from 'body-parser'
 import { ContractId, DefaultProvider, Scrypt, bsv } from 'scrypt-ts'
 import { WebhookExample } from './contracts/webhookExample'
+import artifact from '../artifacts/webhookExample.json'
+WebhookExample.loadArtifact(artifact)
 
+if (process.env.NODE_ENV !== 'production') {
+    import('dotenv').then((dotenv) => dotenv.config())
+}
+
+console.log(process.env.SCRYPT_API_KEY)
 Scrypt.init({
     apiKey: process.env.SCRYPT_API_KEY || '',
     network: bsv.Networks.testnet,
